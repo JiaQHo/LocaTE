@@ -1,7 +1,7 @@
 
 # Getting Started
 ```sh
-LocaTE -b <sorted.BAM> -r <TE.gff> 
+LocaTE -b <sorted.BAM> -g <TE.gff> 
 ```
 # Table of Contents
 [toc]
@@ -62,33 +62,34 @@ Complete parameters `-h`:
 In order to clean the silent TEs. A TE database is constructed from the long reads of RNA-seq in several domestic animals. Based on this database, types of silent TE from GFF file would be discarded. Then returning another GFF file for quantification. 
 Presently, this function `GFFfilter` is limited to a selection of domestic animals, specifically pigs, cattle, sheep, goats, and chickens. For the other species, users could customize the TE annotation file to adjust the active TE subfamilies.
 ```sh
-GFFfilter -s <species> -r <TE.gff>
+GFFfilter -s <species> -g <TE.gff>
 ```
 
 ### 2. Detecting anomalous expression of ERVs
 LocaTE also comes with a python script that detects the anomalous  expression of ERVs by `-e`. It statistics the ratio of each ERV between RNA-seq and genome. Based on DBSCAN, the ERVs with anomalous value are deemed as exogenous.
 For the specific parameters, Euclidean distance is used as the metric for computation. And the eps set to 3. Moreover, users could modify them in that python script file `abnormal_ERVs.py` to increase or decrease its sensitivity. Additionally, users could modify the textfile `ERVFamily` to detect the specific TE subfamilies.
 ```sh
-LocaTE -b <bam> -r <TE.gff> -e
+LocaTE -b <bam> -g <TE.gff> -e
 ```
 
 ### 3. Expected probability threshold
 This parameter `-p` determines the assignment of a multi-mapping TE read indicated by its expected probability. Increasing this parameter yields more accurate assignments but extends processing time due to fewer multi-mapped reads being resolved per cycle.
 ```sh
-LocaTE -b <bam> -r <TE.gff> -p 0.8 
+LocaTE -b <bam> -g <TE.gff> -p 0.8 
 ```
 
 ### 4. Minimum overlap requirement
 Due to most TEs are predominantly active in fragment. Therefore, the default standard is relatively loose to prevent the loss of TE reads. Herein, Users have the flexibility to adjust the key parameters, overlapping rate `-f`, to manage the number of TE reads. This step ensures a balance between capturing a comprehensive representation of TE expression and maintaining the integrity of the TE reads.
 ```sh
 # Reporting only those intersections where 50% of the read is overlapped by a TE.gff (default)
-LocaTE -b <bam> -r <TE.gff> -o <output> -f 0.5
+LocaTE -b <bam> -g <TE.gff> -o <output> -f 0.5
 # Reporting only those intersections where 100% of the read is overlapped by a TE.gff
-LocaTE -b <bam> -r <TE.gff> -o <output> -f 1
+LocaTE -b <bam> -g <TE.gff> -o <output> -f 1
 ```
 
 ## Citing 
 ```
 TBD
 ```
+
 
