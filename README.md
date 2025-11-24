@@ -92,4 +92,3 @@ LocaTE -b <bam> -g <TE.gff> -o <output> -f 1
 TBD
 ```
 
-
