@@ -23,7 +23,7 @@ usage() {
 	echo "	-m <Maximum iterations of the outer cycle> (default: 10)"
 	echo "	-M <Maximum iterations of the inner cycle> (default: 10)"
 	echo "	-e <Abnormal ERV detection> (default: Flase)"
-	exit 1
+	exit 0
 }
 
 # getopts
