@@ -11,7 +11,7 @@ usage() {
 	echo "  -s <Target species> (cattle, sheep, goat, pig, chicken)"
 	echo "  -r <TE annotation file (GFF)>" 
 	echo "  -o <Output prefix> (default: working directory)"
-	exit 1
+	exit 0
 }
 
 # getopts
